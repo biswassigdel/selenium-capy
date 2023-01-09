@@ -54,10 +54,24 @@ public class RequestToPay {
 
     public static void intiateBulkTransaction(WebDriver driver, Properties p) {
         try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             setPayeeDetails(driver, p);
             driver.findElement(By.name("receiveBatchAmount")).sendKeys("78");
             driver.findElement(By.name("totalCount")).sendKeys("12");
             driver.findElement(By.name("referenceNo")).sendKeys("78");
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"amountPreference\"]/div"))).click();
+            driver.findElement(By.id("pills-bulk-tab")).click();
+            WebElement uploadElement = driver.findElement(By.id("inputGroupFile02"));
+            uploadElement.sendKeys("C:\\Users\\pritiyadav\\Downloads\\R2PRequestSample (2).xlsx");
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            WebElement Element = driver.findElement(By.xpath("//*[@id=\"pills-tabContent\"]/div[2]/form/div/div[2]"));
+            js.executeScript("arguments[0].scrollIntoView();", Element);
+            Thread.sleep(1000);
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"pills-tabContent\"]/div[2]/form/div/div[2]"))).click();
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div/div[3]/button[2]"))).click();
+
+            Thread.sleep(10000);
         }catch (Exception e){
             e.printStackTrace();
         }
