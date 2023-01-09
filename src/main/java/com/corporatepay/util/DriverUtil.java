@@ -3,12 +3,14 @@ package com.corporatepay.util;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
 import java.io.FileReader;
 import java.util.Objects;
 import java.util.Properties;
 
 
 public class DriverUtil {
+@BeforeMethod
     public static WebDriver getDriver() {
         try {
             System.setProperty("webdriver.chrome.driver", "C:\\chromdriver\\chromedriver.exe");
@@ -23,6 +25,7 @@ public class DriverUtil {
         return null;
     }
 
+    @BeforeMethod
     public static Properties readFile() {
         try {
             FileReader reader;
