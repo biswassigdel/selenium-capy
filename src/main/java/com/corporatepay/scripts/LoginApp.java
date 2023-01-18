@@ -50,9 +50,7 @@ public class LoginApp {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            if (e != null) {
-                test.fail("Test Failed");
-            }
+           test.fail(e);
         }
     }
 
