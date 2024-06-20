@@ -39,7 +39,6 @@ public class LoginApp {
             String buttonXpath = "//*[@id=\"root\"]/div[1]/div/div[2]/div/div[2]/form/button";
             driver.findElement(By.xpath(buttonXpath)).click();
             Thread.sleep(10000);
-            Thread.sleep(10000);
             String url = driver.getCurrentUrl();
             if (url.equals("https://democorporatepay.connectips.com/#/corporate/home")) {
                 test.pass("Login Test Passed");

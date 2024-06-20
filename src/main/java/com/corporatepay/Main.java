@@ -16,17 +16,16 @@ public class Main {
             WebDriver driver = DriverUtil.getDriver();
             ExtentReports extent = ExtentReportUtil.getExtentReports();
             LoginApp.login(driver, p, extent);
-//            LoginBank.loginBank(driver, p, extent);
-//
+            LoginBank.loginBank(driver, p, extent);
 //            RequestToPay.r2pReq(driver, p);
 //            RequestToPay.initiateIndividualTransaction(driver, p);
-
+            WalltLoad.loadWallet(driver, p, extent);
             //to logout from the bank
-//            LogOutBank.logOutBank(driver, p);
+            LogOutBank.logOutBank(driver, p);
             //to logout from corporate pay application
-//            LogOutApp.logOut(driver, p, extent);
-//            LogOutApp.logOut(driver, p, extent);
+            LogOutApp.logOut(driver, p, extent);
             extent.flush();
+            driver.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
