@@ -17,8 +17,8 @@ public class Main {
             ExtentReports extent = ExtentReportUtil.getExtentReports();
             LoginApp.login(driver, p, extent);
             LoginBank.loginBank(driver, p, extent);
-//            RequestToPay.r2pReq(driver, p);
-//            RequestToPay.initiateIndividualTransaction(driver, p);
+            RequestToPay.r2pReq(driver, p);
+            RequestToPay.initiateIndividualTransaction(driver, p);
             WalltLoad.loadWallet(driver, p, extent);
             //to logout from the bank
             LogOutBank.logOutBank(driver, p);
