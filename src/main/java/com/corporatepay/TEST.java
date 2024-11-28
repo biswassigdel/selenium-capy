@@ -17,7 +17,7 @@ public class TEST {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-            driver.get("https://democorporatepay.connectips.com/#/login");
+            driver.get("XXXX");
             driver.manage().window().maximize();
             driver.findElement(By.name("username")).clear();
             driver.findElement(By.name("username")).sendKeys("PRITI1502");
